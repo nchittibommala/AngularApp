@@ -1,0 +1,53 @@
+﻿<table>
+    <thead>
+        <tr>
+            <td [attr.colspan]="colspan">Employee details</td>
+        </tr>
+    </thead>
+    <tr>
+        <td> Employee Code</td>
+        <td>{{employee.Code}}</td>
+    </tr>
+    <tr>
+        <td> Name</td>
+        <td>{{employee.Name}}</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>{{employee.Gender}}</td>
+    </tr>
+    <tr>
+        <td>Salary</td>
+        <td>{{employee.Salary}}</td>
+    </tr>
+    <tr *ngIf='isShowDetails'>
+        <td> Age</td>
+        <td>{{employee.Age}}</td>
+    </tr>
+    <tr *ngIf='isShowDetails'>
+        <td> DOB</td>
+        <td>{{employee.DOB}}</td>
+    </tr>
+
+
+</table>
+
+<button [disabled]=btndisabled value="Submit" (click)="btnClick()">{{isShowDetails ? 'Hide Details' : 'Show Details'}}</button>
+
+<br />
+<div>
+    <br /><br />
+    <span> <b>One Way Data binding</b> </span> <br />
+    <input id="txtInput" [value]='oneWayDatabinding' /><br />
+    <!-- Changing the input as twoway binding-->
+    <!--<input id="txtInput" [value]='oneWayDatabinding' (input)='oneWayDatabinding=$event.target.value' /><br />-->
+    <span>{{oneWayDatabinding}}</span>
+    
+</div>
+
+<div>
+    <br /><br />
+    <span> <b>Two Way Data binding</b> </span> <br />
+    <input id="txtInputTwoWay" [(ngModel)]="twoWayDatabinding" /><br />
+     <span>{{twoWayDatabinding}}</span>
+</div>
